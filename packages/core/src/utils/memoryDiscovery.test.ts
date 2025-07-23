@@ -568,7 +568,14 @@ describe('loadServerHierarchicalMemory', () => {
     mockFs.access.mockRejectedValue(new Error('not found'));
 
     // Pass the custom limit directly to the function
-    await loadServerHierarchicalMemory(CWD, true, fileService, [], 50);
+    await loadServerHierarchicalMemory(
+      CWD,
+      true,
+      fileService,
+      [],
+      undefined,
+      50,
+    );
 
     expect(consoleDebugSpy).toHaveBeenCalledWith(
       expect.stringContaining('[DEBUG] [BfsFileSearch]'),
